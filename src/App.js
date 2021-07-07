@@ -1,22 +1,24 @@
 import React from "react";
 import "./App.css";
 
+/**
+ * Plan
+ *
+ * Make an online food ordering website
+ *
+ * Have home page describing food theme
+ *
+ * Have menu page with shopping cart
+ *
+ * Have a nav bar
+ *
+ *
+ */
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Homepage</h1>
     </div>
   );
 }
