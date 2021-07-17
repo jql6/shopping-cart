@@ -4,7 +4,7 @@ import "./Cart.css";
 function Cart() {
   return (
     <div className="Cart">
-      <h1>Cart</h1>
+      <h1 className="page-header">Cart</h1>
     </div>
   );
 }
