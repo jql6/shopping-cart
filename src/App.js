@@ -12,13 +12,24 @@ import "./App.css";
  *
  * Have a nav bar
  *
- *
+ * Have a shopping cart page
  */
 
 function App() {
   return (
     <div className="App">
-      <h1>Homepage</h1>
+      <h1 className="page-header">Homepage</h1>
+      <div id="homepage-image">
+        <div className="homepage-image-text">
+          <p>
+            Example description Example description Example description Example
+            description Example description Example description Example
+            description Example description Example description Example
+            description Example description Example description Example
+            description Example description
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
