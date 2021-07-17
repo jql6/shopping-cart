@@ -1,7 +1,7 @@
 import React from "react";
-import "./Menu.css";
+import "./MenuPage.css";
 
-function Menu() {
+function MenuPage() {
   return (
     <div className="Menu">
       <h1 className="page-header">Menu</h1>
@@ -9,4 +9,4 @@ function Menu() {
   );
 }
 
-export default Menu;
+export default MenuPage;

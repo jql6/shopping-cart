@@ -1,7 +1,7 @@
 import React from "react";
-import "./Cart.css";
+import "./CartPage.css";
 
-function Cart() {
+function CartPage() {
   return (
     <div className="Cart">
       <h1 className="page-header">Cart</h1>
@@ -9,4 +9,4 @@ function Cart() {
   );
 }
 
-export default Cart;
+export default CartPage;
