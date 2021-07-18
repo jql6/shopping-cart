@@ -1,0 +1,25 @@
+/* ItemCard.css */
+
+.item-card {
+  display: inline-block;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.item-card-image {
+  height: 200px;
+
+  background-position: center;
+  background-size: cover;
+}
+
+.item-card p {
+  margin: 0px;
+}
+
+.item-card-controls {
+  background-color: rgba(0, 0, 0, 0.06);
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  padding: 1rem 1rem;
+}
