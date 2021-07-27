@@ -1,29 +1,14 @@
-// Menu.js
-import "./Menu.css";
+// MenuDisplay.js
+import "./MenuDisplay.css";
 import React, { useState } from "react";
 import ItemCard from "./ItemCard";
+import fullMenu from "./../Menu";
 
-// Function for generating menu item objects
-const menuItemFactory = (name, imagePath) => {
-  // Return an object with properties name and imagePath
-  return {
-    name,
-    imagePath,
-  };
-};
-
-function Menu(props) {
+function MenuDisplay(props) {
   // Create a card list
-  const [menuItems] = useState([
-    menuItemFactory("Barbacoa Nachos", "nachos.webp"),
-    menuItemFactory("Carnitas Tacos", "carnitas-tacos.webp"),
-    menuItemFactory("Chicken Quesadillas", "quesadillas.webp"),
-  ]);
+  const [menuItems] = useState(fullMenu.food);
 
-  const [drinkItems] = useState([
-    menuItemFactory("Jarritos soda", "jarritos.webp"),
-    menuItemFactory("Perrier water", "perrier.webp"),
-  ]);
+  const [drinkItems] = useState(fullMenu.drinks);
 
   const [totalQuantity, setTotalQuantity] = useState(0);
 
@@ -79,4 +64,4 @@ function Menu(props) {
   );
 }
 
-export default Menu;
+export default MenuDisplay;
