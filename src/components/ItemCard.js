@@ -25,7 +25,7 @@ function ItemCard(props) {
       setMinusClickable(false);
       setPlusClickable(true);
     } // Limit the amount of food that they can order
-    else if (quantity >= 21) {
+    else if (quantity >= 12) {
       setMinusClickable(true);
       setPlusClickable(false);
     } else {
