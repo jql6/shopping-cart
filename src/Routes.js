@@ -7,6 +7,7 @@ import CartPage from "./CartPage";
 const Routes = () => {
   const [totalQuantity, setTotalQuantity] = useState(0);
 
+  // Functions for changing the quantity number next to the cart word
   const incrementTotalQuantity = () => {
     setTotalQuantity(totalQuantity + 1);
   };
