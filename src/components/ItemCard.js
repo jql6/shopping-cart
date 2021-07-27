@@ -38,7 +38,7 @@ function ItemCard(props) {
     <div className="item-card">
       <div
         className="item-card-image"
-        style={{ backgroundImage: `url(/images/${props.imagePath})` }}
+        style={{ backgroundImage: `url(./images/${props.imagePath})` }}
       ></div>
       <div className="item-card-controls">
         <button onClick={decrementQuantity} disabled={!minusClickable}>

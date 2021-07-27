@@ -4,8 +4,6 @@ import "./App.css";
 /**
  * Plan
  *
- * Make an online food ordering website
- *
  * Have home page describing food theme
  *
  * Have menu page with shopping cart
@@ -13,6 +11,7 @@ import "./App.css";
  * Have a nav bar
  *
  * Have a shopping cart page
+ *
  */
 
 function App() {
