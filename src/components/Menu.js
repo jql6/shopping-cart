@@ -12,7 +12,7 @@ const menuItemFactory = (name, imagePath) => {
   };
 };
 
-function Menu() {
+function Menu(props) {
   // Create a card list
   const [menuItems] = useState([
     menuItemFactory("Barbacoa Nachos", "nachos.webp"),
@@ -37,6 +37,8 @@ function Menu() {
               name={item.name}
               id={item.name}
               imagePath={item.imagePath}
+              incrementTotalQuantity={props.incrementTotalQuantity}
+              decrementTotalQuantity={props.decrementTotalQuantity}
             />
           );
         })}
@@ -50,10 +52,13 @@ function Menu() {
               name={item.name}
               id={item.name}
               imagePath={item.imagePath}
+              incrementTotalQuantity={props.incrementTotalQuantity}
+              decrementTotalQuantity={props.decrementTotalQuantity}
             />
           );
         })}
       </div>
+      <button>Add to cart</button>
     </div>
   );
 }

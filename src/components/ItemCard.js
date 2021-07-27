@@ -10,10 +10,12 @@ function ItemCard(props) {
   // Event handlers for plus and minus buttons
   const decrementQuantity = () => {
     setQuantity(quantity - 1);
+    props.decrementTotalQuantity();
   };
   const incrementQuantity = () => {
     // Using parseInt() to force JS to add numerically instead of concatenating
     setQuantity(parseInt(quantity) + 1);
+    props.incrementTotalQuantity();
   };
 
   // Use effect grey out the numbers when too much or too little
@@ -21,9 +23,14 @@ function ItemCard(props) {
     // If the quantity is at 0 or lower, disable the
     if (quantity <= 0) {
       setMinusClickable(false);
+      setPlusClickable(true);
     } // Limit the amount of food that they can order
     else if (quantity >= 21) {
+      setMinusClickable(true);
       setPlusClickable(false);
+    } else {
+      setMinusClickable(true);
+      setPlusClickable(true);
     }
   });
 
