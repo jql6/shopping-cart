@@ -25,6 +25,16 @@ function Menu(props) {
     menuItemFactory("Perrier water", "perrier.webp"),
   ]);
 
+  const [totalQuantity, setTotalQuantity] = useState(0);
+
+  const incrementTotalQuantity = () => {
+    setTotalQuantity(totalQuantity + 1);
+  };
+
+  const decrementTotalQuantity = () => {
+    setTotalQuantity(totalQuantity - 1);
+  };
+
   return (
     <div className="menu">
       <h2>Food</h2>
@@ -37,8 +47,8 @@ function Menu(props) {
               name={item.name}
               id={item.name}
               imagePath={item.imagePath}
-              incrementTotalQuantity={props.incrementTotalQuantity}
-              decrementTotalQuantity={props.decrementTotalQuantity}
+              incrementTotalQuantity={incrementTotalQuantity}
+              decrementTotalQuantity={decrementTotalQuantity}
             />
           );
         })}
@@ -52,13 +62,19 @@ function Menu(props) {
               name={item.name}
               id={item.name}
               imagePath={item.imagePath}
-              incrementTotalQuantity={props.incrementTotalQuantity}
-              decrementTotalQuantity={props.decrementTotalQuantity}
+              incrementTotalQuantity={incrementTotalQuantity}
+              decrementTotalQuantity={decrementTotalQuantity}
             />
           );
         })}
       </div>
-      <button>Add to cart</button>
+      <button
+        onClick={() => {
+          props.setCartTotal(totalQuantity);
+        }}
+      >
+        Save to cart
+      </button>
     </div>
   );
 }

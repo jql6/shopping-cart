@@ -5,16 +5,7 @@ import MenuPage from "./MenuPage";
 import CartPage from "./CartPage";
 
 const Routes = () => {
-  const [totalQuantity, setTotalQuantity] = useState(0);
-
-  // Functions for changing the quantity number next to the cart word
-  const incrementTotalQuantity = () => {
-    setTotalQuantity(totalQuantity + 1);
-  };
-
-  const decrementTotalQuantity = () => {
-    setTotalQuantity(totalQuantity - 1);
-  };
+  const [cartTotal, setCartTotal] = useState(0);
 
   return (
     <BrowserRouter>
@@ -27,7 +18,7 @@ const Routes = () => {
             <Link to="/menu">Menu</Link>
           </li>
           <li>
-            <Link to="/cart">Cart: {totalQuantity}</Link>
+            <Link to="/cart">Cart: {cartTotal}</Link>
           </li>
         </ul>
       </nav>
@@ -37,11 +28,7 @@ const Routes = () => {
           exact
           path="/menu"
           render={(props) => (
-            <MenuPage
-              incrementTotalQuantity={incrementTotalQuantity}
-              decrementTotalQuantity={decrementTotalQuantity}
-              {...props}
-            />
+            <MenuPage setCartTotal={setCartTotal} {...props} />
           )}
         />
         <Route exact path="/cart" render={(props) => <CartPage {...props} />} />
