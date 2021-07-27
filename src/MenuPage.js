@@ -1,12 +1,12 @@
 import React from "react";
 import "./MenuPage.css";
-import Menu from "./components/Menu";
+import MenuDisplay from "./components/MenuDisplay";
 
 function MenuPage(props) {
   return (
     <div className="menu-content">
       <h1 className="page-header">Menu</h1>
-      <Menu setCartTotal={props.setCartTotal} />
+      <MenuDisplay setCartTotal={props.setCartTotal} />
     </div>
   );
 }
