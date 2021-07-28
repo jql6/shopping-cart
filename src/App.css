@@ -4,6 +4,10 @@
   text-align: center;
 }
 
+.italics{
+  font-style: italic;
+}
+
 .page-header {
   background-color: rgb(0, 0, 0, 0.7);
   color: white;
@@ -33,5 +37,5 @@
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
   border-radius: 10px;
-  margin: 0px auto;
+  margin: 1rem auto;
 }
