@@ -21,7 +21,9 @@ function Cart() {
   const [fire, setFire] = useState(false);
 
   const onClickFire = () => {
-    setFire({ fire: {} });
+    setFire({
+      fire: {},
+    });
   };
 
   const confettiStyle = {
@@ -63,6 +65,11 @@ function Cart() {
         style={confettiStyle}
         // if value in this.state.fire cast to the logical true and will differ from the previous, then will be called new animation
         fire={fire}
+        particleCount={60}
+        spread={120}
+        scalar={3}
+        startVelocity={45}
+        origin={{ y: 0.7 }}
       />
     </div>
   );
