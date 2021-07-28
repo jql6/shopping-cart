@@ -33,6 +33,7 @@ const Routes = () => {
             <MenuPage
               setCartItems={setCartItems}
               cartItems={cartItems}
+              cartTotal={cartTotal}
               setCartTotal={setCartTotal}
               {...props}
             />

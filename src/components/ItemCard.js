@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 
 function ItemCard(props) {
   // Create a card list
-  const [quantity, setQuantity] = useState([0]);
+  const [quantity, setQuantity] = useState(props.getCartQuantity());
   const [minusClickable, setMinusClickable] = useState([true]);
   const [plusClickable, setPlusClickable] = useState([true]);
   // Event handlers for plus and minus buttons

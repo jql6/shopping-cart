@@ -18,7 +18,7 @@ function MenuDisplay(props) {
     })
   );
 
-  const [totalQuantity, setTotalQuantity] = useState(0);
+  const [totalQuantity, setTotalQuantity] = useState(props.cartTotal);
 
   const incrementTotalQuantity = (itemName) => {
     setTotalQuantity(totalQuantity + 1);
@@ -54,6 +54,13 @@ function MenuDisplay(props) {
     setTempCart(tempCartCopy);
   };
 
+  const getCartQuantity = (itemName) => {
+    const itemIndex = props.cartItems.findIndex((element) => {
+      return element.name == itemName;
+    });
+    return props.cartItems[itemIndex].quantity;
+  };
+
   return (
     <div className="menu">
       <h2>Food</h2>
@@ -71,6 +78,9 @@ function MenuDisplay(props) {
               }}
               decrementTotalQuantity={() => {
                 decrementTotalQuantity(item.name);
+              }}
+              getCartQuantity={() => {
+                return getCartQuantity(item.name);
               }}
             />
           );
@@ -90,6 +100,9 @@ function MenuDisplay(props) {
               }}
               decrementTotalQuantity={() => {
                 decrementTotalQuantity(item.name);
+              }}
+              getCartQuantity={() => {
+                return getCartQuantity(item.name);
               }}
             />
           );
