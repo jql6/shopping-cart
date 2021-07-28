@@ -1,30 +1,24 @@
 // Menu.js
 
 // Function for generating menu item objects
-const menuItemFactory = (name, imagePath, quantity = 0) => {
+const menuItemFactory = (name, imagePath, itemType, quantity = 0) => {
   // Return an object with properties name and imagePath
   return {
     name,
     imagePath,
+    itemType,
     quantity,
   };
 };
 
 // Create a card list
-const menuItems = [
-  menuItemFactory("Barbacoa Nachos", "nachos.webp"),
-  menuItemFactory("Carnitas Tacos", "carnitas-tacos.webp"),
-  menuItemFactory("Chicken Quesadillas", "quesadillas.webp"),
-];
 
-const drinkItems = [
-  menuItemFactory("Jarritos soda", "jarritos.webp"),
-  menuItemFactory("Perrier water", "perrier.webp"),
+const fullMenu = [
+  menuItemFactory("Barbacoa Nachos", "nachos.webp", "food"),
+  menuItemFactory("Carnitas Tacos", "carnitas-tacos.webp", "food"),
+  menuItemFactory("Chicken Quesadillas", "quesadillas.webp", "food"),
+  menuItemFactory("Jarritos soda", "jarritos.webp", "drink"),
+  menuItemFactory("Perrier water", "perrier.webp", "drink"),
 ];
-
-const fullMenu = {
-  food: menuItems,
-  drinks: drinkItems,
-};
 
 export default fullMenu;

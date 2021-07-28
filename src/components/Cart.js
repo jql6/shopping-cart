@@ -5,7 +5,18 @@ import fullMenu from "./../Menu";
 
 function Cart() {
   // Create a card list
-  const [menuItems] = useState(fullMenu.food);
+  const [menuItems] = useState(
+    fullMenu.filter((element) => {
+      return element.itemType == "food";
+    })
+  );
+
+  const [drinkItems] = useState(
+    fullMenu.filter((element) => {
+      return element.itemType == "drink";
+    })
+  );
+
 
   const [drinkItems] = useState(fullMenu.drinks);
 

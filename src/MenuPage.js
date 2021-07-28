@@ -6,7 +6,10 @@ function MenuPage(props) {
   return (
     <div className="menu-content">
       <h1 className="page-header">Menu</h1>
-      <MenuDisplay setCartTotal={props.setCartTotal} />
+      <MenuDisplay
+        setCartTotal={props.setCartTotal}
+        setCartItems={props.setCartItems}
+      />
     </div>
   );
 }

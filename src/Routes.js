@@ -3,9 +3,11 @@ import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import App from "./App";
 import MenuPage from "./MenuPage";
 import CartPage from "./CartPage";
+import fullMenu from "./Menu";
 
 const Routes = () => {
   const [cartTotal, setCartTotal] = useState(0);
+  const [cartItems, setCartItems] = useState(fullMenu);
 
   return (
     <BrowserRouter>
@@ -28,10 +30,19 @@ const Routes = () => {
           exact
           path="/menu"
           render={(props) => (
-            <MenuPage setCartTotal={setCartTotal} {...props} />
+            <MenuPage
+              setCartItems={setCartItems}
+              cartItems={cartItems}
+              setCartTotal={setCartTotal}
+              {...props}
+            />
           )}
         />
-        <Route exact path="/cart" render={(props) => <CartPage {...props} />} />
+        <Route
+          exact
+          path="/cart"
+          render={(props) => <CartPage cartItems={cartItems} {...props} />}
+        />
       </Switch>
     </BrowserRouter>
   );
