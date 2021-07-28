@@ -22,7 +22,6 @@ function MenuDisplay(props) {
 
   const incrementTotalQuantity = (itemName) => {
     setTotalQuantity(totalQuantity + 1);
-    console.log(itemName);
     incrementItemQuantity(itemName);
   };
 
