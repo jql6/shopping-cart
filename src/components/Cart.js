@@ -2,6 +2,7 @@
 import "./Cart.css";
 import React, { useState } from "react";
 import fullMenu from "./../Menu";
+import ReactCanvasConfetti from "react-canvas-confetti";
 
 function Cart() {
   // Create a card list
@@ -17,30 +18,52 @@ function Cart() {
     })
   );
 
+  const [fire, setFire] = useState(false);
 
-  const [drinkItems] = useState(fullMenu.drinks);
+  const onClickFire = () => {
+    setFire({ fire: {} });
+  };
+
+  const confettiStyle = {
+    position: "absolute",
+    left: "0",
+    top: "0",
+    width: "100%",
+    height: "100%",
+    zIndex: -1,
+  };
 
   return (
-    <div>
+    <div className="cart-items">
       <h2>Food</h2>
-      {menuItems.map((item) => {
-        return (
-          <div key={item.name}>
-            <div>{item.name}</div>
-            <div>{item.quantity}</div>
-          </div>
-        );
-      })}
+      <ul className="no-list-style">
+        {menuItems.map((item) => {
+          return (
+            <li key={item.name}>
+              <div>{item.name}</div>
+              <div>{item.quantity}</div>
+            </li>
+          );
+        })}
+      </ul>
       <h2>Drinks</h2>
-      {drinkItems.map((item) => {
-        return (
-          <div key={item.name}>
-            <div>{item.name}</div>
-            <div>{item.quantity}</div>
-          </div>
-        );
-      })}
-      <button>Checkout</button>
+      <ul className="no-list-style">
+        {drinkItems.map((item) => {
+          return (
+            <li key={item.name}>
+              <div>{item.name}</div>
+              <div>{item.quantity}</div>
+            </li>
+          );
+        })}
+      </ul>
+      <button onClick={onClickFire}>Checkout</button>
+      <ReactCanvasConfetti
+        // set the styles as for a usual react component
+        style={confettiStyle}
+        // if value in this.state.fire cast to the logical true and will differ from the previous, then will be called new animation
+        fire={fire}
+      />
     </div>
   );
 }

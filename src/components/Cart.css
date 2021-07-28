@@ -1,14 +1,20 @@
-/* Menu.css */
+/* Cart.css */
 
-.item-list {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 1fr;
-  margin: 1rem;
+.no-list-style{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
-.menu {
-  margin: auto;
-  max-width: 515px;
-  width: 50%;
+.cart-items .no-list-style li{
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 2fr 1fr;
+  margin: 0.5rem auto;
+  width: 30vw;
+}
+
+.cart-items .no-list-style li div{
+  background-color: rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
 }
