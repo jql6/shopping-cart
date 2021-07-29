@@ -25,7 +25,7 @@ const Routes = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/shopping-cart">Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
             <Link to="/shopping-cart/menu">Menu</Link>
@@ -36,11 +36,7 @@ const Routes = () => {
         </ul>
       </nav>
       <Switch>
-        <Route
-          exact
-          path="/shopping-cart"
-          render={(props) => <App {...props} />}
-        />
+        <Route exact path="/" render={(props) => <App {...props} />} />
         <Route
           exact
           path="/shopping-cart/menu"
