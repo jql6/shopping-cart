@@ -3,8 +3,13 @@ import "./ItemCard.css";
 import React, { useEffect, useState } from "react";
 
 function ItemCard(props) {
-  // Create a card list
+  /**
+   * Component for displaying menu items and associated images
+   */
+
+  // Keep track of the item quantity
   const [quantity, setQuantity] = useState(props.getCartQuantity());
+  // States for preventing nonsensical item quantity changes
   const [minusClickable, setMinusClickable] = useState([true]);
   const [plusClickable, setPlusClickable] = useState([true]);
   // Event handlers for plus and minus buttons
@@ -18,7 +23,7 @@ function ItemCard(props) {
     props.incrementTotalQuantity();
   };
 
-  // Use effect grey out the numbers when too much or too little
+  // Grey out the numbers when too much or too little
   useEffect(() => {
     // If the quantity is at 0 or lower, disable the
     if (quantity <= 0) {

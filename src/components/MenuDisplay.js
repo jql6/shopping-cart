@@ -6,21 +6,26 @@ import fullMenu from "./../Menu";
 import ReactCanvasConfetti from "react-canvas-confetti";
 
 function MenuDisplay(props) {
-  // Create a card list
+  /**
+   * This component displays the menu items as a single column
+   */
+
+  // Collect the food items from the menu
   const [menuItems] = useState(
     fullMenu.filter((item) => {
       return item.itemType == "food";
     })
   );
-
+  // Collect the drink items from the menu
   const [drinkItems] = useState(
     fullMenu.filter((item) => {
       return item.itemType == "drink";
     })
   );
-
+  // Keep track of the total through '+' and '-' button clicks
   const [totalQuantity, setTotalQuantity] = useState(props.cartTotal);
 
+  // Update the totalQuantity and item quantities with each button press
   const incrementTotalQuantity = (itemName) => {
     setTotalQuantity(totalQuantity + 1);
     incrementItemQuantity(itemName);
@@ -30,10 +35,11 @@ function MenuDisplay(props) {
     setTotalQuantity(totalQuantity - 1);
     decrementItemQuantity(itemName);
   };
-
+  // Keep track of the item quantities
   const [tempCart, setTempCart] = useState(fullMenu);
 
   const incrementItemQuantity = (itemName) => {
+    // Get the index of the item in the array from fullMenu
     const itemIndex = tempCart.findIndex((element) => {
       return element.name == itemName;
     });
@@ -54,7 +60,7 @@ function MenuDisplay(props) {
     // Save the changes
     setTempCart(tempCartCopy);
   };
-
+  // Get the quantity of an item being ordered
   const getCartQuantity = (itemName) => {
     const itemIndex = props.cartItems.findIndex((element) => {
       return element.name == itemName;
@@ -62,6 +68,7 @@ function MenuDisplay(props) {
     return props.cartItems[itemIndex].quantity;
   };
 
+  // Confetti code
   const [fire, setFire] = useState(false);
 
   const onClickFire = () => {

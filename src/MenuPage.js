@@ -1,3 +1,4 @@
+// MenuPage.js
 import React from "react";
 import "./MenuPage.css";
 import MenuDisplay from "./components/MenuDisplay";

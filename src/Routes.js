@@ -9,7 +9,9 @@ import CartPage from "./CartPage";
 import fullMenu from "./Menu";
 
 const Routes = () => {
+  // This is the number of items that the person is ordering
   const [cartTotal, setCartTotal] = useState(0);
+  // This keeps track of how many of each item the person is ordering
   const [cartItems, setCartItems] = useState(fullMenu);
 
   return (

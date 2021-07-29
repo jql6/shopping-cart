@@ -5,19 +5,19 @@ import fullMenu from "./../Menu";
 import ReactCanvasConfetti from "react-canvas-confetti";
 
 function Cart() {
-  // Create a card list
+  // Get the food items from the full menu
   const [menuItems] = useState(
     fullMenu.filter((element) => {
       return element.itemType == "food";
     })
   );
-
+  // Get the drink items from the full menu
   const [drinkItems] = useState(
     fullMenu.filter((element) => {
       return element.itemType == "drink";
     })
   );
-
+  // Confetti code
   const [fire, setFire] = useState(false);
 
   const onClickFire = () => {

@@ -1,3 +1,4 @@
+// CartPage.js
 import React from "react";
 import "./CartPage.css";
 import Cart from "./components/Cart";
