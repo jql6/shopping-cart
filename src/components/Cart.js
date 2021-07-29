@@ -59,7 +59,9 @@ function Cart() {
           );
         })}
       </ul>
-      <button onClick={onClickFire}>Checkout</button>
+      <button className={"page-end-button"} onClick={onClickFire}>
+        Checkout
+      </button>
       <ReactCanvasConfetti
         // set the styles as for a usual react component
         style={confettiStyle}

@@ -3,6 +3,7 @@ import "./MenuDisplay.css";
 import React, { useState } from "react";
 import ItemCard from "./ItemCard";
 import fullMenu from "./../Menu";
+import ReactCanvasConfetti from "react-canvas-confetti";
 
 function MenuDisplay(props) {
   // Create a card list
@@ -61,6 +62,23 @@ function MenuDisplay(props) {
     return props.cartItems[itemIndex].quantity;
   };
 
+  const [fire, setFire] = useState(false);
+
+  const onClickFire = () => {
+    setFire({
+      fire: {},
+    });
+  };
+
+  const confettiStyle = {
+    position: "absolute",
+    left: "0",
+    bottom: "-950px",
+    width: "100%",
+    height: "100%",
+    zIndex: -1,
+  };
+
   return (
     <div className="menu">
       <h2>Food</h2>
@@ -109,15 +127,28 @@ function MenuDisplay(props) {
         })}
       </div>
       <button
+        className={"page-end-button"}
         onClick={() => {
           // Adjust the cart total number
           props.setCartTotal(totalQuantity);
           // Update the items in the cart
           props.setCartItems(tempCart);
+          onClickFire();
         }}
       >
         Save to cart
       </button>
+      <ReactCanvasConfetti
+        // set the styles as for a usual react component
+        style={confettiStyle}
+        // if value in this.state.fire cast to the logical true and will differ from the previous, then will be called new animation
+        fire={fire}
+        particleCount={30}
+        spread={120}
+        scalar={4}
+        startVelocity={45}
+        origin={{ y: 0.7 }}
+      />
     </div>
   );
 }
