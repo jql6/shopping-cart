@@ -9,9 +9,9 @@ function MenuPage(props) {
       <h1 className="page-header">Menu</h1>
       <MenuDisplay
         cartItems={props.cartItems}
+        setCartItems={props.setCartItems}
         cartTotal={props.cartTotal}
         setCartTotal={props.setCartTotal}
-        setCartItems={props.setCartItems}
         getCartQuantity={props.getCartQuantity}
       />
     </div>
