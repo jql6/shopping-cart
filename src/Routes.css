@@ -1,0 +1,32 @@
+/* Routes.css */
+
+nav ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  justify-content: center;
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+}
+
+nav ul li {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: solid black 1px;
+  display: inline-block;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+nav a {
+  color: rgb(97, 175, 329);
+}
+
+nav a:visited {
+  color: rgb(230, 180, 180);
+}
+
+@media screen and (min-width: 600px) {
+  /* */
+}
