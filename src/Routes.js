@@ -2,7 +2,7 @@
 import "./Routes.css";
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import { HashRouter, Switch, Route, Link } from "react-router-dom";
 import App from "./App";
 import MenuPage from "./MenuPage";
 import CartPage from "./CartPage";
@@ -15,7 +15,7 @@ const Routes = () => {
   const [cartItems, setCartItems] = useState(fullMenu);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Helmet>
         <title>Quesadilla Bravas</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -56,7 +56,7 @@ const Routes = () => {
           render={(props) => <CartPage cartItems={cartItems} {...props} />}
         />
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
