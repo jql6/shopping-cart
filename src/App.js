@@ -1,19 +1,6 @@
 import React from "react";
 import "./App.css";
 
-/**
- * Plan
- *
- * Have home page describing food theme
- *
- * Have menu page with shopping cart
- *
- * Have a nav bar
- *
- * Have a shopping cart page
- *
- */
-
 function App() {
   return (
     <div className="App">
