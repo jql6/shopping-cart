@@ -25,8 +25,6 @@ function MenuDisplay(props) {
   // Keep track of the total through '+' and '-' button clicks
   const [totalQuantity, setTotalQuantity] = useState(props.cartTotal);
 
-  const [tempFullMenu, setTempFullMenu] = useState(props.cartItems);
-
   // Update the totalQuantity and item quantities with each button press
   const incrementTotalQuantity = (itemName) => {
     setTotalQuantity(totalQuantity + 1);
