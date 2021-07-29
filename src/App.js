@@ -17,6 +17,12 @@ function App() {
             of its reputation for excellent food. Each dish is jam-packed with
             cheese and no tortilla is ever left too long on the stove.
           </p>
+          <p>
+            <a href="https://github.com/jql6/shopping-cart">
+              Link to the repository
+            </a>{" "}
+            | <a href="https://jql6.github.io/">Return to homepage</a>
+          </p>
         </div>
       </div>
     </div>
