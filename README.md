@@ -6,8 +6,7 @@ Web app simulating an online shop.
 
 ## Usage
 
-Go the the [shop](https://jql6.github.io/shopping-cart/) and check out the
-weather!
+Go the the [shop](https://jql6.github.io/shopping-cart/) and make an order!
 
 # References
 
