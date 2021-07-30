@@ -128,7 +128,7 @@ function MenuDisplay(props) {
             cartItemsCopy.map((item) => {
               item.quantity = item.tempQuantity;
             });
-            props.setCartItems(cartItemsCopy);
+            return cartItemsCopy;
           });
           props.setCartTotal(props.calculateCartTotal());
           onClickFire();
