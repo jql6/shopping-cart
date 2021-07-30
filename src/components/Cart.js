@@ -1,19 +1,18 @@
 // Cart.js
 import "./Cart.css";
 import React, { useState } from "react";
-import fullMenu from "./../Menu";
 import ReactCanvasConfetti from "react-canvas-confetti";
 
-function Cart() {
+function Cart(props) {
   // Get the food items from the full menu
   const [menuItems] = useState(
-    fullMenu.filter((element) => {
+    props.cartItems.filter((element) => {
       return element.itemType == "food";
     })
   );
   // Get the drink items from the full menu
   const [drinkItems] = useState(
-    fullMenu.filter((element) => {
+    props.cartItems.filter((element) => {
       return element.itemType == "drink";
     })
   );

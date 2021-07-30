@@ -8,19 +8,17 @@ function ItemCard(props) {
    */
 
   // Keep track of the item quantity
-  const [quantity, setQuantity] = useState(props.getCartQuantity());
+  const [quantity, setQuantity] = useState(props.getCartQuantity(props.name));
   // States for preventing nonsensical item quantity changes
   const [minusClickable, setMinusClickable] = useState([true]);
   const [plusClickable, setPlusClickable] = useState([true]);
   // Event handlers for plus and minus buttons
   const decrementQuantity = () => {
-    setQuantity(quantity - 1);
-    props.decrementTotalQuantity();
+    setQuantity(parseInt(quantity) - 1);
   };
   const incrementQuantity = () => {
     // Using parseInt() to force JS to add numerically instead of concatenating
     setQuantity(parseInt(quantity) + 1);
-    props.incrementTotalQuantity();
   };
 
   // Grey out the numbers when too much or too little
@@ -47,7 +45,13 @@ function ItemCard(props) {
       ></div>
       <div className="item-card-controls">
         <div>
-          <button onClick={decrementQuantity} disabled={!minusClickable}>
+          <button
+            onClick={() => {
+              props.decrementItemQuantity(props.name);
+              decrementQuantity();
+            }}
+            disabled={!minusClickable}
+          >
             -
           </button>
         </div>
@@ -55,7 +59,13 @@ function ItemCard(props) {
           {props.name}: {quantity}
         </p>
         <div>
-          <button onClick={incrementQuantity} disabled={!plusClickable}>
+          <button
+            onClick={() => {
+              props.incrementItemQuantity(props.name);
+              incrementQuantity();
+            }}
+            disabled={!plusClickable}
+          >
             +
           </button>
         </div>

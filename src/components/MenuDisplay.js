@@ -22,52 +22,36 @@ function MenuDisplay(props) {
       return item.itemType == "drink";
     })
   );
-  // Keep track of the total through '+' and '-' button clicks
-  const [totalQuantity, setTotalQuantity] = useState(props.cartTotal);
-
-  // Update the totalQuantity and item quantities with each button press
-  const incrementTotalQuantity = (itemName) => {
-    setTotalQuantity(totalQuantity + 1);
-    incrementItemQuantity(itemName);
-  };
-
-  const decrementTotalQuantity = (itemName) => {
-    setTotalQuantity(totalQuantity - 1);
-    decrementItemQuantity(itemName);
-  };
-  // Keep track of the item quantities
-  const [tempCart, setTempCart] = useState(
-    JSON.parse(JSON.stringify(fullMenu))
-  );
 
   const incrementItemQuantity = (itemName) => {
     // Get the index of the item in the array from fullMenu
-    const itemIndex = tempCart.findIndex((element) => {
+    const itemIndex = props.cartItems.findIndex((element) => {
       return element.name == itemName;
     });
-    let tempCartCopy = tempCart;
+    let cartItemsCopy = JSON.parse(JSON.stringify(props.cartItems));
     // Update the quantity of the item
-    tempCartCopy[itemIndex].quantity += 1;
+    cartItemsCopy[itemIndex].tempQuantity += 1;
     // Save the changes
-    setTempCart(tempCartCopy);
+    props.setCartItems(cartItemsCopy);
   };
 
   const decrementItemQuantity = (itemName) => {
-    const itemIndex = tempCart.findIndex((element) => {
+    const itemIndex = props.cartItems.findIndex((element) => {
       return element.name == itemName;
     });
-    let tempCartCopy = tempCart;
+    let cartItemsCopy = JSON.parse(JSON.stringify(props.cartItems));
     // Update the quantity of the item
-    tempCartCopy[itemIndex].quantity -= 1;
+    cartItemsCopy[itemIndex].tempQuantity -= 1;
     // Save the changes
-    setTempCart(tempCartCopy);
+    props.setCartItems(cartItemsCopy);
   };
+
   // Get the quantity of an item being ordered
   const getCartQuantity = (itemName) => {
     const itemIndex = props.cartItems.findIndex((element) => {
       return element.name == itemName;
     });
-    return props.cartItems[itemIndex].quantity;
+    return props.cartItems[itemIndex].tempQuantity;
   };
 
   // Confetti code
@@ -100,11 +84,11 @@ function MenuDisplay(props) {
               name={item.name}
               id={item.name}
               imagePath={item.imagePath}
-              incrementTotalQuantity={() => {
-                incrementTotalQuantity(item.name);
+              incrementItemQuantity={() => {
+                incrementItemQuantity(item.name);
               }}
-              decrementTotalQuantity={() => {
-                decrementTotalQuantity(item.name);
+              decrementItemQuantity={() => {
+                decrementItemQuantity(item.name);
               }}
               getCartQuantity={() => {
                 return getCartQuantity(item.name);
@@ -122,11 +106,11 @@ function MenuDisplay(props) {
               name={item.name}
               id={item.name}
               imagePath={item.imagePath}
-              incrementTotalQuantity={() => {
-                incrementTotalQuantity(item.name);
+              incrementItemQuantity={() => {
+                incrementItemQuantity(item.name);
               }}
-              decrementTotalQuantity={() => {
-                decrementTotalQuantity(item.name);
+              decrementItemQuantity={() => {
+                decrementItemQuantity(item.name);
               }}
               getCartQuantity={() => {
                 return getCartQuantity(item.name);
@@ -138,10 +122,17 @@ function MenuDisplay(props) {
       <button
         className={"page-end-button"}
         onClick={() => {
-          // Adjust the cart total number
-          props.setCartTotal(totalQuantity);
           // Update the items in the cart
-          props.setCartItems(tempCart);
+          props.setCartItems(() => {
+            let cartItemsCopy = JSON.parse(JSON.stringify(props.cartItems));
+            cartItemsCopy.map((item) => {
+              item.quantity = item.tempQuantity;
+            });
+            props.setCartItems(cartItemsCopy);
+            console.log(cartItemsCopy);
+          });
+          console.log(props.cartItems);
+          props.setCartTotal(props.calculateCartTotal());
           onClickFire();
         }}
       >

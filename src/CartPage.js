@@ -3,11 +3,11 @@ import React from "react";
 import "./CartPage.css";
 import Cart from "./components/Cart";
 
-function CartPage() {
+function CartPage(props) {
   return (
     <div className="Cart">
       <h1 className="page-header">Cart</h1>
-      <Cart />
+      <Cart cartItems={props.cartItems} />
     </div>
   );
 }

@@ -1,13 +1,20 @@
 // Menu.js
 
 // Function for generating menu item objects
-const menuItemFactory = (name, imagePath, itemType, quantity = 0) => {
+const menuItemFactory = (
+  name,
+  imagePath,
+  itemType,
+  quantity = 0,
+  tempQuantity = 0
+) => {
   // Return an object with properties name and imagePath
   return {
     name,
     imagePath,
     itemType,
     quantity,
+    tempQuantity,
   };
 };
 

@@ -9,10 +9,17 @@ import CartPage from "./CartPage";
 import fullMenu from "./Menu";
 
 const Routes = () => {
-  // This is the number of items that the person is ordering
-  const [cartTotal, setCartTotal] = useState(0);
   // This keeps track of how many of each item the person is ordering
   const [cartItems, setCartItems] = useState(fullMenu);
+  // This is the number of items that the person is ordering
+  const calculateCartTotal = () => {
+    let sum = 0;
+    cartItems.map((item) => {
+      sum += item.tempQuantity;
+    });
+    return sum;
+  };
+  const [cartTotal, setCartTotal] = useState(calculateCartTotal());
 
   return (
     <HashRouter>
@@ -42,8 +49,9 @@ const Routes = () => {
           path="/shopping-cart/menu"
           render={(props) => (
             <MenuPage
-              setCartItems={setCartItems}
               cartItems={cartItems}
+              setCartItems={setCartItems}
+              calculateCartTotal={calculateCartTotal}
               cartTotal={cartTotal}
               setCartTotal={setCartTotal}
               {...props}

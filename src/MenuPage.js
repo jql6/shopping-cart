@@ -10,9 +10,10 @@ function MenuPage(props) {
       <MenuDisplay
         cartItems={props.cartItems}
         setCartItems={props.setCartItems}
+        getCartQuantity={props.getCartQuantity}
+        calculateCartTotal={props.calculateCartTotal}
         cartTotal={props.cartTotal}
         setCartTotal={props.setCartTotal}
-        getCartQuantity={props.getCartQuantity}
       />
     </div>
   );
