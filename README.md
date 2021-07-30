@@ -2,6 +2,8 @@
 
 Web app simulating an online shop.
 
+![Demo](https://user-images.githubusercontent.com/46179386/127593498-411bb52d-b26f-4d20-b00e-b92a7a0afa4c.gif)
+
 ---
 
 ## Usage
