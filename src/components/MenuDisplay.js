@@ -129,9 +129,7 @@ function MenuDisplay(props) {
               item.quantity = item.tempQuantity;
             });
             props.setCartItems(cartItemsCopy);
-            console.log(cartItemsCopy);
           });
-          console.log(props.cartItems);
           props.setCartTotal(props.calculateCartTotal());
           onClickFire();
         }}
