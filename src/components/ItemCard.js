@@ -41,7 +41,11 @@ function ItemCard(props) {
     <div className="item-card">
       <div
         className="item-card-image"
-        style={{ backgroundImage: `url(./images/${props.imagePath})` }}
+        style={
+          /* For some reason, the images don't show up in the local build */ {
+            backgroundImage: `url(./images/${props.imagePath})`,
+          }
+        }
       ></div>
       <div className="item-card-controls">
         <div>
